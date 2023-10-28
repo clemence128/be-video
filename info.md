@@ -32,12 +32,33 @@ MYSQL_DATABASE
 
   - Cập nhật thông tin ở phía client (static/video/main.js)
 ```bash
-# Cập nhật đường dẫn socket đến server:
+# Cập nhật đường dẫn socket đến server (connectSocket()):
 this.socket = io('http://localhost:3000', {
   extraHeaders: {
   Authorization: this.token,
   }
 });
+```
+
+```bash
+# Với mục đích dễ dàng thực hiện demo. Thay thế giá trị token1, token2 tương ứng với lại userId
+data: {
+    token: null,
+    token1: '1',
+    token2: '2',
+    order_id: 3,
+    socket: null,
+    socketOptions: null,
+    localStream: null,
+    remoteStream: null,
+    isRoomCreator: false,
+    rtcPeerConnection: null,
+    logMessages: [],
+    callerName: null,
+    isCalling: false,
+    currentCall: null,
+    isShowCancel: false,
+  },
 ```
    
         
