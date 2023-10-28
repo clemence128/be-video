@@ -18,10 +18,12 @@ MYSQL_DATABASE
 ```
   - Cập nhật các thông tin liên quan đến đường dẫn file ở phía client (trong file static/video/index.html)
 ```html
-  # Cập nhật lại đường dẫn đến file style.css
+# Cập nhật lại đường dẫn đến file style.css
 <link rel="stylesheet" href="./styles.css">
-                    ...
-  # Cập nhật lại đường dẫn đến file main.js
+
+#                    ...
+
+# Cập nhật lại đường dẫn đến file main.js
 <script src="./main.js"></script>
 
 ```
@@ -29,13 +31,13 @@ MYSQL_DATABASE
       + Cập nhật lại đường dẫn đến file style.css
 
   - Cập nhật thông tin ở phía client (static/video/main.js)
-      + Cập nhật đường dẫn socket đến server:
-      ```bash
-            this.socket = io('http://localhost:3000', {
-              extraHeaders: {
-                Authorization: this.token,
-              }
-            });
-       ```
+```bash
+# Cập nhật đường dẫn socket đến server:
+this.socket = io('http://localhost:3000', {
+  extraHeaders: {
+  Authorization: this.token,
+  }
+});
+```
    
         
