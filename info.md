@@ -1,13 +1,15 @@
 # be-video
 
 ## Project configuration
+  - Tạo file .env và bổ sung các thông tin sau để kết nối đến Mysql và MongoDB:
 ```bash
-  # Tạo file .env và bổ sung các thông tin sau để kết nối đến Mysql và MongoDB:
+# ------------------- MONGODB CONFIGURATION -------------------
 MONGO_HOST
 MONGO_PORT
 MONGO_PASSWORD (optional)
 MONGO_USER (optional)
 MONGO_DATABASE
+# ------------------- MYSQL CONFIGURATION -------------------
 MYSQL_HOST
 MYSQL_PORT
 MYSQL_USER
