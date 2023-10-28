@@ -17,6 +17,14 @@ MYSQL_PASSWORD
 MYSQL_DATABASE
 ```
   - Cập nhật các thông tin liên quan đến đường dẫn file ở phía client (trong file static/video/index.html)
+```html
+  # Cập nhật lại đường dẫn đến file style.css
+<link rel="stylesheet" href="./styles.css">
+                    ...
+  # Cập nhật lại đường dẫn đến file main.js
+<script src="./main.js"></script>
+
+```
       + Cập nhật lại đường dẫn đến file main.js
       + Cập nhật lại đường dẫn đến file style.css
 
