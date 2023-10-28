@@ -19,10 +19,13 @@
       + Cập nhật lại đường dẫn đến file style.css
 
   - Cập nhật thông tin ở phía client (static/video/main.js)
-      + Cập nhật đường dẫn socket đến server: this.socket = io('http://localhost:3000', {
+      + Cập nhật đường dẫn socket đến server:
+        <code>
+            this.socket = io('http://localhost:3000', {
               extraHeaders: {
                 Authorization: this.token,
               }
             });
+        </code>
    
         
