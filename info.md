@@ -1,0 +1,3 @@
+# be-video
+
+## Project configuration
