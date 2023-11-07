@@ -19,7 +19,7 @@ MYSQL_USER=
 MYSQL_PASSWORD=
 MYSQL_DATABASE=
 ```
-  - Vào file app.module.ts thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```với mục đích tự tạo table trong database (note: Tạo database trước tương ứng với ```MYSQL_DATABASE``` được khai báo trong file .env)
+  - Vào file ```app.module.ts``` thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```với mục đích tự tạo table trong database (note: Tạo database trước tương ứng với ```MYSQL_DATABASE``` được khai báo trong file .env)
 ```
   ....
   TypeOrmModule.forRootAsync({
@@ -39,6 +39,35 @@ MYSQL_DATABASE=
       }),
     }),
   ....
+```
+  - Vào file ```user.service.ts``` thực hiện thêm method ```async findById(id: string) : Promise<User | null>```
+```
+  
+@Injectable()
+export class UserService {
+  constructor(
+    private readonly userRepository: UserRepository,
+    @InjectRepository(Profile) private profileRepository: Repository<Profile>,
+    @InjectRepository(User) private userRepository2: Repository<User> // thêm dòng này
+  ) {}
+
+  ...
+  async findById(id: string) : Promise<User | null>{
+    return await this.userRepository2.findOne(id);
+  }
+  ...
+}
+```
+  - Mở file ```user.module.ts``` thực hiện import ```TypeOrmModule.forFeature([UserOrm])```
+```
+@Module({
+  imports: [
+    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    TypeOrmModule.forFeature([UserOrm]) // dòng này nè
+  ],
+  providers: [UserService, UserRepository],
+})
+export class UserModule {}
 ```
   - Cập nhật các thông tin liên quan đến đường dẫn file ở phía client (trong file static/video/index.html)
 ```html
