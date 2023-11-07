@@ -7,17 +7,17 @@ Mô phỏng chức năng gọi video giữa khách hàng (customer) và người
   - Tạo file ```.env``` và bổ sung các thông tin sau để kết nối đến Mysql và MongoDB:
 ```bash
 # ------------------- MONGODB CONFIGURATION -------------------
-MONGO_HOST=
-MONGO_PORT=
+MONGO_HOST=localhost
+MONGO_PORT=27017
 MONGO_PASSWORD= #optional
 MONGO_USER= #optional
-MONGO_DATABASE=
+MONGO_DATABASE=bevideo
 # ------------------- MYSQL CONFIGURATION -------------------
-MYSQL_HOST=
-MYSQL_PORT=
-MYSQL_USER=
-MYSQL_PASSWORD=
-MYSQL_DATABASE=
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASSWORD=sapassword
+MYSQL_DATABASE=bevideo
 ```
   - Vào file ```app.module.ts``` thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```với mục đích tự tạo table trong database (note: Tạo database trước tương ứng với ```MYSQL_DATABASE``` được khai báo trong file .env)
 ```
