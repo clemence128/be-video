@@ -19,7 +19,8 @@ MYSQL_USER=
 MYSQL_PASSWORD=
 MYSQL_DATABASE=
 ```
-  - Vào file app.module.ts thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```
+  - Vào file app.module.ts thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```với mục đích tự tạo table trong entity (note: Tạo database trước tương ứng với ```MYSQL_DATABASE``` được khai báo trong file .env)
+  - 
 ```
   ....
   TypeOrmModule.forRootAsync({
