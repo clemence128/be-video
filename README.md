@@ -151,13 +151,16 @@ data: {
   
 ![image](https://github.com/clemence128/be-video/assets/86718789/f8231d4d-6ee5-403c-b44f-e6a0bb7016dd)
 
+
   + table ```profiles```:
     
 ![image](https://github.com/clemence128/be-video/assets/86718789/b4c42949-6eed-489f-b771-ffb3090be4bb)
+
   + table ```odr_hdr```
     
 ![image](https://github.com/clemence128/be-video/assets/86718789/526da0b9-f7fb-4ba0-9bbd-8e5354445c5f)
-  + table ```customers``
+
+  + table ```customers```
     
 ![image](https://github.com/clemence128/be-video/assets/86718789/e22c76dd-65ed-4b68-bcc7-a11d2c9c6779)
 
