@@ -19,6 +19,28 @@ MYSQL_USER=
 MYSQL_PASSWORD=
 MYSQL_DATABASE=
 ```
+  - Vào file app.module.ts thêm dòng ```bash synchronize: true```
+```
+bash
+  ....
+  TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        type: 'mysql',
+        host: configService.get('MYSQL_HOST'),
+        port: Number(configService.get('MYSQL_PORT')),
+        username: configService.get('MYSQL_USER'),
+        password: configService.get('MYSQL_PASSWORD'),
+        database: configService.get('MYSQL_DATABASE'),
+        entities: [
+          join(__dirname, 'entities/mysql/', '**', '*.entity{.ts,.js}'),
+        ],
+        synchronize: true,
+      }),
+    }),
+  ....
+```
   - Cập nhật các thông tin liên quan đến đường dẫn file ở phía client (trong file static/video/index.html)
 ```html
 # Cập nhật lại đường dẫn đến file style.css
@@ -44,7 +66,7 @@ this.socket = io('http://localhost:3000', {
 ```
 
 ```bash
-# Với mục đích dễ dàng thực hiện demo. Thay thế giá trị token1, token2 tương ứng với lại userId
+# Với mục đích thực hiện demo hiệu quả hơn. Thay thế giá trị token1, token2 tương ứng với lại userId
 data: {
     token: null,
     token1: '1',
