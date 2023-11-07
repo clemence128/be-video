@@ -146,7 +146,7 @@ data: {
 ```
 - Thực hiện chạy câu lệnh ``` npm run start``` ở trong terminal.
 - Sau khi chạy server thành công, vào database mysql thêm các dữ liệu mẫu ở tất cả các bảng để có thể thực hiện demo (Lưu ý: table ```odr_hdr```, table ```users``` có id trùng với data ở bên client.
-- E.G:
+- Data mẫu:
   + table ```users```:
   
 ![image](https://github.com/clemence128/be-video/assets/86718789/f8231d4d-6ee5-403c-b44f-e6a0bb7016dd)
