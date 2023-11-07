@@ -4,7 +4,7 @@
 Mô phỏng chức năng gọi video giữa khách hàng (customer) và người giao hàng (shipping) thuộc 1 đơn hàng.
 
 ## Project configuration
-  - Tạo file .env và bổ sung các thông tin sau để kết nối đến Mysql và MongoDB:
+  - Tạo file ```.env``` và bổ sung các thông tin sau để kết nối đến Mysql và MongoDB:
 ```bash
 # ------------------- MONGODB CONFIGURATION -------------------
 MONGO_HOST=
