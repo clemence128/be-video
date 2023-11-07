@@ -144,5 +144,6 @@ data: {
     isShowCancel: false,
   },
 ```
-   
+- Thực hiện chạy câu lệnh ``` npm run start``` ở trong terminal.
+- Sau khi chạy server thành công, vào database mysql thêm các dữ liệu mẫu ở tất cả các bảng để có thể thực hiện demo (Lưu ý: table ```odr_hdr```, table ```users``` có id trùng với data ở bên client.
         
