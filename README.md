@@ -146,15 +146,15 @@ data: {
 ```
 - Thực hiện chạy câu lệnh ``` npm run start``` ở trong terminal.
 - Sau khi chạy server thành công, vào database mysql thêm các dữ liệu mẫu ở tất cả các bảng để có thể thực hiện demo (Lưu ý: table ```odr_hdr```, table ```users``` có id trùng với data ở bên client.
--E.G:
-  +table ```users```:
+- E.G:
+  + table ```users```:
 ![image](https://github.com/clemence128/be-video/assets/86718789/f8231d4d-6ee5-403c-b44f-e6a0bb7016dd)
 
-  +table ```profiles```:
+  + table ```profiles```:
 ![image](https://github.com/clemence128/be-video/assets/86718789/b4c42949-6eed-489f-b771-ffb3090be4bb)
-  +table ```odr_hdr```
+  + table ```odr_hdr```
 ![image](https://github.com/clemence128/be-video/assets/86718789/526da0b9-f7fb-4ba0-9bbd-8e5354445c5f)
-  +table ```customers```
+  + table ```customers```
 ![image](https://github.com/clemence128/be-video/assets/86718789/e22c76dd-65ed-4b68-bcc7-a11d2c9c6779)
 
 
