@@ -69,8 +69,42 @@ export class UserService {
 })
 export class UserModule {}
 ```
-  - Cập nhật các thông tin liên quan đến đường dẫn file ở phía client (trong file static/video/index.html)
-```html
+  - Vào file ```video.gateway.ts``` cập nhật như sau:
+```
+async handleConnection(socket: Socket) {
+    // throw new WsException('Invalid credentials.');
+    const token = socket.handshake.headers.authorization;
+    // const user = await this.userService.findByToken(token);
+    const user = await this.userService.findById(token); // xác thực người dùng thông qua id thay vì token.
+    console.log("USER::::", user);
+    if (_.isNull(user)) {
+      _.remove(VideoGateway.activeSockets, (obj) => {
+        return _.get(obj, 'socket_id') == socket.id;
+      });
+      return;
+    }
+    // Disable user status
+    // const status = 'AC';
+    // await this.userService.updateStatuShipper(token, status);
+
+    const existingSocket = _.find(VideoGateway.activeSockets, (obj) => {
+      return _.get(obj, 'socket_id') == socket.id;
+    });
+
+    if (!existingSocket) {
+      VideoGateway.activeSockets.push({
+        socket_id: socket.id,
+        user_id: user.id,
+        user: user,
+      });
+    }
+    console.log('Connect');
+    console.log('Active Sockets:');
+    console.table(VideoGateway.activeSockets);
+  }
+```
+  - Cập nhật các thông tin liên quan đến đường dẫn file ở phía client trong file ```static/video/index.html```
+```
 # Cập nhật lại đường dẫn đến file style.css
 <link rel="stylesheet" href="./styles.css">
 
@@ -80,11 +114,8 @@ export class UserModule {}
 <script src="./main.js"></script>
 
 ```
-      + Cập nhật lại đường dẫn đến file main.js
-      + Cập nhật lại đường dẫn đến file style.css
-
-  - Cập nhật thông tin ở phía client (static/video/main.js)
-```bash
+  - Cập nhật thông tin ở phía client ```static/video/main.js```
+```
 # Cập nhật đường dẫn socket đến server (connectSocket()):
 this.socket = io('http://localhost:3000', {
   extraHeaders: {
@@ -93,7 +124,7 @@ this.socket = io('http://localhost:3000', {
 });
 ```
 
-```bash
+```
 # Với mục đích thực hiện demo hiệu quả hơn. Thay thế giá trị token1, token2 tương ứng với lại userId
 data: {
     token: null,
