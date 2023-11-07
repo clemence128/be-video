@@ -19,7 +19,7 @@ MYSQL_USER=root
 MYSQL_PASSWORD=sapassword
 MYSQL_DATABASE=bevideo
 ```
-  - Vào file ```app.module.ts``` thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```với mục đích tự tạo table trong database (note: Tạo database trước tương ứng với ```MYSQL_DATABASE``` được khai báo trong file .env)
+  - Vào file ```src/app.module.ts``` thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```với mục đích tự tạo table trong database (note: Tạo database trước tương ứng với ```MYSQL_DATABASE``` được khai báo trong file .env)
 ```
   ....
   TypeOrmModule.forRootAsync({
@@ -40,7 +40,7 @@ MYSQL_DATABASE=bevideo
     }),
   ....
 ```
-  - Vào file ```user.service.ts``` thực hiện thêm method ```async findById(id: string) : Promise<User | null>```
+  - Vào file ```src/modules/user/user.service.ts``` thực hiện thêm method ```async findById(id: string) : Promise<User | null>```
 ```
   
 @Injectable()
@@ -58,7 +58,7 @@ export class UserService {
   ...
 }
 ```
-  - Mở file ```user.module.ts``` thực hiện import ```TypeOrmModule.forFeature([UserOrm])```
+  - Mở file ```src/modules/user/user.module.ts``` thực hiện import ```TypeOrmModule.forFeature([UserOrm])```
 ```
 @Module({
   imports: [
@@ -69,7 +69,7 @@ export class UserService {
 })
 export class UserModule {}
 ```
-  - Vào file ```video.gateway.ts``` cập nhật như sau:
+  - Vào file ```src/modules/video/video.gateway.ts``` cập nhật như sau:
 ```
 async handleConnection(socket: Socket) {
     // throw new WsException('Invalid credentials.');
