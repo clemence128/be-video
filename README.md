@@ -19,9 +19,8 @@ MYSQL_USER=
 MYSQL_PASSWORD=
 MYSQL_DATABASE=
 ```
-  - Vào file app.module.ts thêm dòng ```bash synchronize: true```
+  - Vào file app.module.ts thêm thuộc tính ``` synchronize: true``` ở trong ```TypeOrmModule.forRootAsync```
 ```
-bash
   ....
   TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
