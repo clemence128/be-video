@@ -69,6 +69,24 @@ export class UserService {
 })
 export class UserModule {}
 ```
+  - Mở file ```src/modules/video/video.module.ts``` thực hiện import ```User``` entity của mysql:
+```
+  @Module({
+  imports: [
+    MongooseModule.forFeature([{ name: Call.name, schema: CallSchema }]),
+    TypeOrmModule.forFeature([Profile, OdrHdr, User]), // thêm User ở đây.
+  ],
+  providers: [
+    VideoGateway,
+    VideoService,
+    CallRepository,
+    UserRepository,
+    UserService,
+    OdrHdrService,
+  ],
+})
+export class VideoModule {}
+```
   - Vào file ```src/modules/video/video.gateway.ts``` cập nhật như sau:
 ```
 async handleConnection(socket: Socket) {
